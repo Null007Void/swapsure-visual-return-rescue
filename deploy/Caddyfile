@@ -1,0 +1,34 @@
+# TLS terminates here, and only here. The app itself never speaks TLS and never binds a public port.
+# Authentication is required on every path, including image and status endpoints.
+{
+    email {$ACME_EMAIL}
+}
+
+{$JUDGE_HOST} {
+    encode zstd gzip
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    basicauth /* {
+        # judge password hash generated with: caddy hash-password --plaintext ...
+        {$JUDGE_BASIC_AUTH_HASH}
+    }
+
+    reverse_proxy 127.0.0.1:8080 {
+        # the proxy is the only thing that may declare the scheme
+        header_up X-Forwarded-Proto https
+        header_up Host {host}
+        transport http {
+            read_timeout 330s
+            write_timeout 330s
+        }
+    }
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+    }
+}

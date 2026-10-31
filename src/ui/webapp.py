@@ -141,12 +141,22 @@ class Application:
         *,
         allowed_hosts: frozenset[str] = frozenset({"127.0.0.1:8000", "localhost:8000"}),
         enforce_host: bool = False,
+        external_scheme: str | None = None,
     ) -> None:
         self.service = service
         self.allowed_hosts = allowed_hosts
         # A hosted deployment sits behind a proxy that may forward any Host it is given, and a
         # rebound DNS name would otherwise reach the app under an unknown host on read paths too.
         self.enforce_host = enforce_host
+        # Only the operator may declare that TLS terminates in front of this process. A request
+        # header such as X-Forwarded-Proto is client-controlled and is never consulted.
+        self.external_scheme = external_scheme if external_scheme in ("http", "https") else None
+
+
+    @property
+    def _secure_cookie(self) -> bool:
+        """Cookies are Secure only when the operator declared TLS in front of this process."""
+        return self.external_scheme == "https"
 
     # -- WSGI ------------------------------------------------------------ #
     def __call__(self, environ: Mapping[str, Any], start_response: Callable[..., Any]) -> list[bytes]:
@@ -230,8 +240,7 @@ class Application:
                     status=403,
                 )
 
-        scheme = (environ.get("HTTP_X_FORWARDED_PROTO")
-                  or environ.get("wsgi.url_scheme") or "http")
+        scheme = self.external_scheme or str(environ.get("wsgi.url_scheme") or "http")
         ok, reason = same_origin(method, headers, self.allowed_hosts,
                                  str(scheme).split(",")[0].strip().lower())
         if not ok:
@@ -269,7 +278,7 @@ class Application:
             form = _parse_form(body, headers)
             sku = (form.get("sku", [""])[0] or "").strip()
             session_id = self.service.start_sample_return(segments[1], sku)
-            return _redirect(f"/s/{session_id}", cookie=session_cookie_header(session_id))
+            return _redirect(f"/s/{session_id}", cookie=session_cookie_header(session_id, secure=self._secure_cookie))
         if method == "POST" and path == "/returns":
             return self._create_return(environ, headers)
         if method == "GET" and path == "/refund-host":
@@ -353,7 +362,7 @@ class Application:
                     ),
                 )
             raise
-        return _redirect(f"/s/{session_id}", cookie=session_cookie_header(session_id))
+        return _redirect(f"/s/{session_id}", cookie=session_cookie_header(session_id, secure=self._secure_cookie))
 
     def _session_page(self, session_id: str, *, preselect: str | None = None) -> Response:
         view = self.service.get_case(session_id)

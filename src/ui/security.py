@@ -63,8 +63,8 @@ def parse_cookies(header: str | None) -> dict[str, str]:
 
 
 def session_cookie_header(session_id: str, *, secure: bool = False) -> str:
-    """HttpOnly, same-site cookie.  Not Secure because the demo is plain HTTP on
-    loopback; a deployed HTTPS build must set ``secure=True``.
+    """HttpOnly, same-site cookie. Not Secure by default, because the demo is plain HTTP on loopback;
+    a deployment that declares an external HTTPS scheme sets ``secure=True``.
     """
 
     parts = [
@@ -80,7 +80,10 @@ def session_cookie_header(session_id: str, *, secure: bool = False) -> str:
 
 
 def clear_session_cookie_header() -> str:
-    return f"{SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0"
+    parts = [f"{SESSION_COOKIE}=", "Path=/", "HttpOnly", "SameSite=Lax", "Max-Age=0"]
+    if secure:
+        parts.append("Secure")
+    return "; ".join(parts)
 
 
 def same_origin(method: str, headers: Mapping[str, str], allowed_hosts: frozenset[str],

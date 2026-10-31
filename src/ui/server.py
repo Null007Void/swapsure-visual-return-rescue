@@ -32,6 +32,7 @@ def build_app(
     port: int = 8000,
     preview_mode: str = "MOCK",
     public_host: str | None = None,
+    external_scheme: str | None = None,
 ) -> tuple[Application, ReturnService]:
     service = ReturnService(data_dir, preview_mode=preview_mode)
     names = {f"127.0.0.1:{port}", f"localhost:{port}", f"[::1]:{port}"}
@@ -42,7 +43,8 @@ def build_app(
         names.add(f"{public_host}:443")
         names.add(f"{public_host}:80")
     allowed = frozenset(names)
-    return Application(service, allowed_hosts=allowed, enforce_host=True), service
+    return Application(service, allowed_hosts=allowed, enforce_host=True,
+                       external_scheme=external_scheme), service
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -58,6 +60,12 @@ def main(argv: list[str] | None = None) -> int:
         "--public-host",
         default=os.environ.get("SWAPSURE_PUBLIC_HOST") or None,
         help="public hostname the proxy sends in the Host header; enables hosted mode",
+    )
+    parser.add_argument(
+        "--external-scheme",
+        default=os.environ.get("SWAPSURE_EXTERNAL_SCHEME") or None,
+        choices=("http", "https"),
+        help="the scheme browsers actually use; set https when a TLS proxy fronts this process",
     )
     parser.add_argument(
         "--threaded",
@@ -78,6 +86,7 @@ def main(argv: list[str] | None = None) -> int:
             port=args.port,
             preview_mode=args.preview_mode,
             public_host=args.public_host,
+            external_scheme=args.external_scheme,
         )
     except (LiveTransportAbsent, AdapterError) as exc:
         print(f"PREVIEW_MODE_UNAVAILABLE: {exc}", file=sys.stderr)

@@ -69,7 +69,7 @@ Prices are indicative and must be confirmed at purchase; nothing has been bought
 
 | Option | Shape | Indicative cost | Notes |
 | --- | --- | --- | --- |
-| Fly.io machine + volume | 256 MB shared CPU, region `iad`, 1 GB volume | about $0–5 / month at this size; a tiny machine may sit inside the free allowance | closest match: TLS, private networking, secrets, volume, scale-to-zero possible |
+| Google Cloud e2-small + 10 GB disk (chosen) | us-central1, Caddy in front for TLS and basic auth | under $15 for the judging window, from the public price list | keeps SQLite and uploads on a persistent disk; see docs/DEPLOY-GOOGLE-CLOUD.md |
 | Render web service | starter instance + persistent disk | about $7 / month (service) + disk | simpler UI, disk required for the ledger and uploads |
 | Railway | container + volume | about $5 / month usage-based | easy, less predictable |
 | Hetzner CX22 VPS + Caddy | full VM | about €4–5 / month | cheapest at long horizon, but you own patching, TLS and restarts |

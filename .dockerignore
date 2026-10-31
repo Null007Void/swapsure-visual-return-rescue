@@ -1,0 +1,21 @@
+# Keep the build context to the product: no data, no history, no local environments.
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+data
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.log
+.env
+.env.*
+*.pem
+*.key
+tests
+release
+evidence
+provenance
+*.zip
