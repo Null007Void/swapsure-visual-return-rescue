@@ -111,8 +111,6 @@ def test_the_download_headers_are_attachment_with_the_png_name(tmp_path):
             headers = {k.lower(): v for k, v in response.headers.items()}
             assert headers["content-type"] == "image/png"
             assert headers["content-disposition"] == f'attachment; filename="{name}"'
-            body = client.get(f"/samples/{name}").text
-            assert "download=" in body or True  # the attribute lives in the page, asserted below
         page_probe = Client(Application(service))
         assert page_probe.get("/").status == 200
     finally:
