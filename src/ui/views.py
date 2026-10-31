@@ -202,6 +202,33 @@ def _judging_banner(enabled: bool) -> str:
     )
 
 
+SAMPLE_PHOTOS = (
+    ("female", "/samples/female-sample.png", "Female sample"),
+    ("male", "/samples/male-sample.png", "Male sample"),
+)
+
+
+def photo_samples_html() -> str:
+    """Optional PNG samples a judge may download and then upload through the normal control.
+
+    Downloading is a plain GET: no consent, no session mutation and no provider task is created.
+    """
+    links = "".join(
+        f'<li><a href="{esc(href)}" download="{esc(href.rsplit("/", 1)[-1])}" '
+        f'type="image/png">{esc(label)}</a> (PNG, {esc(href.rsplit("/", 1)[-1])})</li>'
+        for _key, href, label in SAMPLE_PHOTOS
+    )
+    return (
+        '<div class="samples">'
+        '<p><strong>Need a photo to try?</strong> These are synthetic adult sample images, not '
+        'customers. Download one and upload it with the control above, exactly as you would your '
+        'own photo. PNG only, at least 512x384 and under 10 MB; a JPEG is refused. Downloading a '
+        'sample does nothing else: it creates no preview, spends no unit and needs no consent '
+        'until you upload it and press Generate.</p>'
+        f"<ul>{links}</ul></div>"
+    )
+
+
 def layout(
     *,
     title: str,
@@ -585,6 +612,7 @@ def candidates_page(view: CaseView, *, mode: str = "MOCK",
         + '<input id="photo" name="photo" type="file" accept="image/png" required>'
         + '<button type="submit">' + ("Replace photo" if photo_present else "Send photo for try-on")
         + "</button></form>"
+        + photo_samples_html()
         + f'<p><a href="/s/{sid}/consent-panel">Photo and consent controls</a></p></div>'
     )
     chosen_row = next((c for c in selection.candidates if c.sku == chosen), None) if chosen else None
@@ -1186,7 +1214,8 @@ def consent_panel_page(view: CaseView, *, mode: str = "MOCK") -> str:
         '<label for="photo">Photo (PNG, 512x384 minimum, under 10 MB)</label>'
         '<input id="photo" name="photo" type="file" accept="image/png" required>'
         '<button type="submit">Send photo for try-on</button></form>'
-        '<p class="muted">Deleting your photo here removes this server\'s copy only. It does not '
+        + photo_samples_html()
+        + '<p class="muted">Deleting your photo here removes this server\'s copy only. It does not '
         "delete anything the try-on provider already received: the provider's developer "
         "documentation states media and file/task identifiers are retained for 30 days while "
         "result links expire after two hours, and a separate provider page says uploaded pictures "

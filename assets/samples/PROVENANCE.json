@@ -1,0 +1,30 @@
+{
+  "samples": [
+    {
+      "file": "female-sample.png",
+      "sha256": "dcde1267dd194793b6af5037c214cca1fb3541105f5bba920d632bc2b15511f4",
+      "bytes": 1809300,
+      "png_dimensions": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "contains_person": true,
+      "consent": "synthetic model, supplied for this project",
+      "source": "synthetic adult reference supplied by the owner; identical bytes to Models/Female-model.png"
+    },
+    {
+      "file": "male-sample.png",
+      "sha256": "7dbfefb799e32c33a9c60c16ec12e36f34ef468b98285e6d97ad45e8b3f197bb",
+      "bytes": 1736464,
+      "png_dimensions": [
+        1086,
+        1448
+      ],
+      "synthetic": true,
+      "contains_person": true,
+      "consent": "synthetic model, supplied for this project",
+      "source": "synthetic adult reference supplied by the owner; identical bytes to Models/Male-model.png"
+    }
+  ]
+}

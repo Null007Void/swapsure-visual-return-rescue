@@ -32,6 +32,7 @@ POST /uploads                   bounded UTF-8 JSON scenario upload (own inputs)
 from __future__ import annotations
 
 import pathlib
+import re
 import sys
 import traceback
 import urllib.parse
@@ -67,6 +68,8 @@ ROUTES: tuple[tuple[str, str], ...] = (
     ("POST", "/catalog/<collection>/select"),
     ("GET", "/refund-host"),
     ("GET", "/ledger"),
+    ("GET", "/samples/female-sample.png"),
+    ("GET", "/samples/male-sample.png"),
     ("POST", "/uploads"),
     ("GET", "/media/<handle>"),
     ("GET", "/s/<session_id>"),
@@ -285,6 +288,16 @@ class Application:
             # Deliberately independent: no cookie, no store, no session lookup.
             reference = (query.get("ref") or [None])[0]
             return _html(200, views.refund_host_page(reference=reference))
+        match_samples = re.fullmatch(r"/samples/(female|male)-sample\.png", path)
+        if method == "GET" and match_samples:
+            name = match_samples.group(1) + "-sample.png"
+            data = self.service.sample_photo(name)
+            if data is None:
+                raise ServiceError("NOT_FOUND", "no such sample", status=404)
+            return Response(200, data,
+                            (("content-type", "image/png"),
+                             ("content-disposition", f'inline; filename="{name}"'),
+                             ("cache-control", "public, max-age=86400")))
         if method == "GET" and path == "/ledger":
             return self._ledger()
         if method == "POST" and path == "/uploads":

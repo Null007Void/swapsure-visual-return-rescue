@@ -120,6 +120,9 @@ class CaseView:
 CONSENT_WINDOW = __import__("datetime").timedelta(minutes=30)
 
 
+PNG_SIGNATURE = bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])
+
+
 class ReturnService:
     """One data directory, one shopper store, one offline mode."""
 
@@ -175,6 +178,17 @@ class ReturnService:
     @property
     def clock(self) -> Callable[[], datetime]:
         return self._clock
+
+    def sample_photo(self, name: str) -> bytes | None:
+        """A bundled synthetic sample image, served read-only. It touches no case and no ledger."""
+        if name not in {"female-sample.png", "male-sample.png"}:
+            return None
+        path = pathlib.Path(__file__).resolve().parents[2] / "assets" / "samples" / name
+        try:
+            data = path.read_bytes()
+        except OSError:
+            return None
+        return data if data[:8] == PNG_SIGNATURE else None
 
     def close(self) -> None:
         with self._lock:
