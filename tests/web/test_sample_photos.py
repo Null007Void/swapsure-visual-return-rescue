@@ -26,7 +26,7 @@ def test_both_samples_download_as_png_with_correct_names(tmp_path):
             assert response.status == 200, (name, response.status)
             headers = {k.lower(): v for k, v in response.headers.items()}
             assert headers.get("content-type") == "image/png"
-            assert headers.get("content-disposition") == f'inline; filename="{name}"'
+            assert headers.get("content-disposition") == f'attachment; filename="{name}"'
             body = response.body if isinstance(response.body, bytes) else bytes(response.body)
             assert body[:8] == bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])
             assert hashlib.sha256(body).hexdigest() == digest, name

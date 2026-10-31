@@ -221,10 +221,12 @@ def photo_samples_html() -> str:
     return (
         '<div class="samples">'
         '<p><strong>Need a photo to try?</strong> These are synthetic adult sample images, not '
-        'customers. Download one and upload it with the control above, exactly as you would your '
-        'own photo. PNG only, at least 512x384 and under 10 MB; a JPEG is refused. Downloading a '
-        'sample does nothing else: it creates no preview, spends no unit and needs no consent '
-        'until you upload it and press Generate.</p>'
+        'customers. Downloading one needs no consent and does nothing else: it creates no case, '
+        'no preview and no provider task, and spends no unit. To use it, upload it with the control '
+        'above exactly as you would your own photo; the image-consent step applies to every upload, '
+        'yours or a sample, before any preview exists. Pressing Generate is what sends the image to '
+        'the try-on provider and spends the units. PNG only, at least 512x384 and under 10 MB; a JPEG '
+        'is refused.</p>'
         f"<ul>{links}</ul></div>"
     )
 

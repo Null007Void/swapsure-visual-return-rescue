@@ -296,7 +296,7 @@ class Application:
                 raise ServiceError("NOT_FOUND", "no such sample", status=404)
             return Response(200, data,
                             (("content-type", "image/png"),
-                             ("content-disposition", f'inline; filename="{name}"'),
+                             ("content-disposition", f'attachment; filename="{name}"'),
                              ("cache-control", "public, max-age=86400")))
         if method == "GET" and path == "/ledger":
             return self._ledger()
