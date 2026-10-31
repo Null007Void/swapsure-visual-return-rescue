@@ -1,0 +1,17 @@
+{
+  "status": "NOT_AUTHORIZED",
+  "owner": null,
+  "approvedAt": null,
+  "approvalEvidenceReference": null,
+  "action": null,
+  "artifactSha256OrCommit": null,
+  "endpointOrDestination": null,
+  "allowedData": [],
+  "callCap": 0,
+  "unitCap": 0,
+  "currencyCap": 0,
+  "currency": null,
+  "expiresAt": null,
+  "revoked": false,
+  "note": "Template only. Agent-authored fields cannot constitute owner approval."
+}

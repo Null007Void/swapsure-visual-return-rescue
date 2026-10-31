@@ -1,0 +1,186 @@
+[
+  {
+    "id": "E01",
+    "reasonCodes": [
+      "COLOR"
+    ],
+    "immediateRefund": false,
+    "expected": "ELIGIBLE_VISUAL_RESCUE"
+  },
+  {
+    "id": "E02",
+    "reasonCodes": [
+      "STYLE"
+    ],
+    "immediateRefund": false,
+    "expected": "ELIGIBLE_VISUAL_RESCUE"
+  },
+  {
+    "id": "E03",
+    "reasonCodes": [
+      "VISUAL_EXPECTATION"
+    ],
+    "immediateRefund": false,
+    "expected": "ELIGIBLE_VISUAL_RESCUE"
+  },
+  {
+    "id": "E04",
+    "reasonCodes": [
+      "OCCASION"
+    ],
+    "immediateRefund": false,
+    "expected": "ELIGIBLE_VISUAL_RESCUE"
+  },
+  {
+    "id": "E05",
+    "reasonCodes": [
+      "TOO_SMALL"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_FIT"
+  },
+  {
+    "id": "E06",
+    "reasonCodes": [
+      "TOO_LARGE"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_FIT"
+  },
+  {
+    "id": "E07",
+    "reasonCodes": [
+      "DAMAGED"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_DEFECT"
+  },
+  {
+    "id": "E08",
+    "reasonCodes": [
+      "DEFECTIVE"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_DEFECT"
+  },
+  {
+    "id": "E09",
+    "reasonCodes": [
+      "WRONG_ITEM"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_FULFILLMENT_ERROR"
+  },
+  {
+    "id": "E10",
+    "reasonCodes": [
+      "MATERIAL_UNCOMFORTABLE"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_MATERIAL"
+  },
+  {
+    "id": "E11",
+    "reasonCodes": [
+      "WANT_REFUND"
+    ],
+    "immediateRefund": false,
+    "expected": "REFUND_REQUESTED"
+  },
+  {
+    "id": "E12",
+    "reasonCodes": [
+      "COLOR"
+    ],
+    "immediateRefund": true,
+    "expected": "REFUND_REQUESTED"
+  },
+  {
+    "id": "E13",
+    "reasonCodes": [],
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  },
+  {
+    "id": "E14",
+    "reasonCodes": [
+      "OTHER"
+    ],
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  },
+  {
+    "id": "E15",
+    "reasonCodes": [
+      "COLOR",
+      "OTHER"
+    ],
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  },
+  {
+    "id": "E16",
+    "reasonCodes": [
+      "COLOR",
+      "TOO_SMALL"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_FIT"
+  },
+  {
+    "id": "E17",
+    "reasonCodes": [
+      "STYLE",
+      "MATERIAL_UNCOMFORTABLE"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_MATERIAL"
+  },
+  {
+    "id": "E18",
+    "reasonCodes": [
+      "COLOR",
+      "STYLE"
+    ],
+    "immediateRefund": false,
+    "expected": "ELIGIBLE_VISUAL_RESCUE"
+  },
+  {
+    "id": "E19",
+    "reasonCodes": [
+      "DAMAGED",
+      "TOO_LARGE"
+    ],
+    "immediateRefund": false,
+    "expected": "INELIGIBLE_DEFECT"
+  },
+  {
+    "id": "E20",
+    "reasonCodes": [
+      "COLOR",
+      "WANT_REFUND"
+    ],
+    "immediateRefund": false,
+    "expected": "REFUND_REQUESTED"
+  },
+  {
+    "id": "E21",
+    "reasonCodes": null,
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  },
+  {
+    "id": "E22",
+    "reasonCodes": "COLOR",
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  },
+  {
+    "id": "E23",
+    "reasonCodes": [
+      42
+    ],
+    "immediateRefund": false,
+    "expected": "UNKNOWN_REQUIRES_REFUND_PATH"
+  }
+]

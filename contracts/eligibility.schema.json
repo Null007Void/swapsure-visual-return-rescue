@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SwapSure eligibility decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "eligible",
+    "matchedReasons",
+    "policyVersion",
+    "explanationCode",
+    "refundAvailable"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "REFUND_REQUESTED",
+        "UNKNOWN_REQUIRES_REFUND_PATH",
+        "INELIGIBLE_DEFECT",
+        "INELIGIBLE_FULFILLMENT_ERROR",
+        "INELIGIBLE_FIT",
+        "INELIGIBLE_MATERIAL",
+        "ELIGIBLE_VISUAL_RESCUE"
+      ]
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "matchedReasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policyVersion": {
+      "const": "1.0"
+    },
+    "explanationCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "refundAvailable": {
+      "const": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ELIGIBLE_VISUAL_RESCUE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "eligible": {
+            "const": true
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "eligible": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

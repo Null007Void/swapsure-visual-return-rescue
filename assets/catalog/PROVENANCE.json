@@ -1,0 +1,267 @@
+{
+  "source": "owner-supplied synthetic garment references",
+  "api_category_verified": false,
+  "note": "Descriptive categories are not provider enums; see docs/CATALOG-CATEGORIES.md",
+  "archives": [
+    {
+      "collection": "women",
+      "file": "SwapSure-Female-10-Garment-References.zip",
+      "bytes": 20108933,
+      "sha256": "334ad03105b76e17fb777cfc1b0d7c7ce4578a398a16d95719ce8ace05f66f51"
+    },
+    {
+      "collection": "men",
+      "file": "SwapSure-Male-01-05-NEW-v2-Modern-References.zip",
+      "bytes": 7945236,
+      "sha256": "f469f7e7fc0e33f4fba56a7538f6c62515d5f6854f604f63e144c7e6cb8127d5"
+    },
+    {
+      "collection": "men",
+      "file": "SwapSure-Male-Garment-References-Part2-of2.zip",
+      "bytes": 11086222,
+      "sha256": "0d0c94f25fdb13fa3bf841ce380b54d423a13c2b1eb467ba39fae7f965519c26"
+    }
+  ],
+  "references": [
+    {
+      "collection": "women",
+      "sku": "W01-TEAL-WRAP-DRESS",
+      "name": "Teal wrap midi dress",
+      "descriptive_category": "dress",
+      "price_minor": 8400,
+      "stock": 3,
+      "source_member": "01_teal_wrap_dress.png",
+      "bytes": 1975071,
+      "sha256": "013262d7cf1e628df5a6e601680e5730975b39a7865e4cc07c2489a914790024",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W02-IVORY-LACE-BLOUSE",
+      "name": "Ivory lace blouse",
+      "descriptive_category": "blouse",
+      "price_minor": 6200,
+      "stock": 2,
+      "source_member": "02_ivory_lace_blouse.png",
+      "bytes": 2662429,
+      "sha256": "4e196ba0c3ede073ba266dfbfdeeaa500eecfa17a467c6fb10b7ef39410df90b",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W03-BLACK-PINSTRIPE-BLAZER",
+      "name": "Black pinstripe blazer",
+      "descriptive_category": "blazer",
+      "price_minor": 11800,
+      "stock": 1,
+      "source_member": "03_black_pinstripe_blazer.png",
+      "bytes": 2189609,
+      "sha256": "b6f79a9c24439eb5dc60b58291f23ebcd7ea18dd8e8aea96c55ef89bb2f270f1",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W04-RUST-WIDELEG-TROUSERS",
+      "name": "Rust wide-leg trousers",
+      "descriptive_category": "trousers",
+      "price_minor": 7400,
+      "stock": 2,
+      "source_member": "04_rust_wideleg_trousers.png",
+      "bytes": 2194437,
+      "sha256": "8017b81733635c24598b82bfbe7bca2cec540e270524c267e35cc4143966f153",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W05-LAVENDER-PLEATED-SKIRT",
+      "name": "Lavender pleated skirt",
+      "descriptive_category": "skirt",
+      "price_minor": 6800,
+      "stock": 2,
+      "source_member": "05_lavender_pleated_skirt.png",
+      "bytes": 1858040,
+      "sha256": "bf347753da18d60622e54aa3f0c942402038064fdfd62245abb0b01423c8c253",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W06-RED-FLORAL-MAXIDRESS",
+      "name": "Red floral maxi dress",
+      "descriptive_category": "dress",
+      "price_minor": 9600,
+      "stock": 1,
+      "source_member": "06_red_floral_maxidress.png",
+      "bytes": 2219510,
+      "sha256": "c447890c23089e5960d1dda874c319541c22b42fb4b4236b474124bf5c0a2840",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W07-MUSTARD-CABLE-CARDIGAN",
+      "name": "Mustard cable cardigan",
+      "descriptive_category": "cardigan",
+      "price_minor": 5800,
+      "stock": 3,
+      "source_member": "07_mustard_cable_cardigan.png",
+      "bytes": 2526800,
+      "sha256": "cb10b467f077c711f0062f64cc841dc8165a677f39e97d56a84840341ef4ae8b",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W08-BLUE-GEOMETRIC-SHIRT",
+      "name": "Blue geometric shirt",
+      "descriptive_category": "shirt",
+      "price_minor": 5400,
+      "stock": 2,
+      "source_member": "08_blue_geometric_shirt.png",
+      "bytes": 1858329,
+      "sha256": "0c6da892ccb4787c0e3ff59b147d3a6f848904dc809d5f8ce501af41c076b3cc",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W09-OLIVE-UTILITY-JACKET",
+      "name": "Olive utility jacket",
+      "descriptive_category": "jacket",
+      "price_minor": 10200,
+      "stock": 1,
+      "source_member": "09_olive_utility_jacket.png",
+      "bytes": 2103909,
+      "sha256": "3d3a677f0ed8f9898379d8fa9e9283d680cd0e69a78aae3059df44349dfcbabb",
+      "api_category_verified": false
+    },
+    {
+      "collection": "women",
+      "sku": "W10-CORAL-RUFFLED-TOP",
+      "name": "Coral ruffled top",
+      "descriptive_category": "top",
+      "price_minor": 4900,
+      "stock": 3,
+      "source_member": "10_coral_ruffled_top.png",
+      "bytes": 1984623,
+      "sha256": "a5064ffdb977d9dcf1ee010b08b9fba529ac9358513115c9f73fa4eda8e487cf",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M01-ASYMMETRIC-KNIT-POLO",
+      "name": "Ink-plum knit polo",
+      "descriptive_category": "polo",
+      "price_minor": 7800,
+      "stock": 2,
+      "source_member": "01_asymmetric_knit_polo_NEW-v2.png",
+      "bytes": 1837216,
+      "sha256": "2baef60a503649744148360743522e7bfe58660ded751e6603ca8079388a3085",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M02-COLORBLOCK-OVERSHIRT",
+      "name": "Colour-block overshirt",
+      "descriptive_category": "overshirt",
+      "price_minor": 8900,
+      "stock": 2,
+      "source_member": "02_colorblock_overshirt_NEW-v2.png",
+      "bytes": 1627792,
+      "sha256": "4e55d2f54ce85ed8c6cf0535696cdae67b180cefa3f5b2571dbc0b9abc097547",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M03-TECHNICAL-JACKET",
+      "name": "Technical jacket",
+      "descriptive_category": "jacket",
+      "price_minor": 12800,
+      "stock": 1,
+      "source_member": "03_technical_jacket_NEW-v2.png",
+      "bytes": 1618639,
+      "sha256": "fa54b0add5ef1ce6638f8350efa92c91891f9b923470e3fc4f43ebd69ac7d985",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M04-TEXTURED-CAMP-SHIRT",
+      "name": "Textured camp shirt",
+      "descriptive_category": "shirt",
+      "price_minor": 5900,
+      "stock": 3,
+      "source_member": "04_textured_camp_shirt_NEW-v2.png",
+      "bytes": 2015532,
+      "sha256": "2805d3b3b04efe3717f785ddfe6537d982069aa9522d12c64e2d26640f37c080",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M05-TAILORED-UTILITY-TROUSERS",
+      "name": "Tailored utility trousers",
+      "descriptive_category": "trousers",
+      "price_minor": 8400,
+      "stock": 2,
+      "source_member": "05_tailored_utility_trousers_NEW-v2.png",
+      "bytes": 1723585,
+      "sha256": "e51adea3506d8d9b5d11ec7ae1aaa07091e359216748da0e53fc390b7d6519ea",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M06-OLIVE-FIELD-JACKET",
+      "name": "Olive field jacket",
+      "descriptive_category": "jacket",
+      "price_minor": 11200,
+      "stock": 1,
+      "source_member": "06_olive_field_jacket.png",
+      "bytes": 2185378,
+      "sha256": "c58a9ea94681aedd1618badbe0fc839bbe61af55796a85771a04418f0791578c",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M07-BLUE-DENIM-OVERSHIRT",
+      "name": "Blue denim overshirt",
+      "descriptive_category": "overshirt",
+      "price_minor": 8200,
+      "stock": 2,
+      "source_member": "07_blue_denim_overshirt.png",
+      "bytes": 3026456,
+      "sha256": "a62e17cb9f074deb12c0c4969af5d7c1eb6c43b9b7fe097394f1204f8d26ca98",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M08-TAN-TRENCH-COAT",
+      "name": "Tan trench coat",
+      "descriptive_category": "coat",
+      "price_minor": 14900,
+      "stock": 1,
+      "source_member": "08_tan_trench_coat.png",
+      "bytes": 2021403,
+      "sha256": "f696df3d7948f8fce243caddfc038da2dd2037f94cf80111c3460849d26b586c",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M09-RUST-CHECK-FLANNEL",
+      "name": "Rust check flannel",
+      "descriptive_category": "shirt",
+      "price_minor": 6400,
+      "stock": 2,
+      "source_member": "09_rust_check_flannel.png",
+      "bytes": 2757245,
+      "sha256": "89bb6a4680fe0e79eeed96b65d1c724ebc7891a0a24676c61d284183358ddd0e",
+      "api_category_verified": false
+    },
+    {
+      "collection": "men",
+      "sku": "M10-BLACK-BOMBER-JACKET",
+      "name": "Black bomber jacket",
+      "descriptive_category": "jacket",
+      "price_minor": 10400,
+      "stock": 3,
+      "source_member": "10_black_bomber_jacket.png",
+      "bytes": 1918717,
+      "sha256": "e11f0981a6211221fcd797f1812280208d8a0459765a9a604a66ac0e1834f360",
+      "api_category_verified": false
+    }
+  ]
+}

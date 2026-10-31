@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "states": [
+    "RETURN_STARTED",
+    "ELIGIBILITY_CHECKED",
+    "CONSENT_PENDING",
+    "CANDIDATES_READY",
+    "PREVIEW_PENDING",
+    "DECISION_READY",
+    "QUOTE_READY",
+    "COMMIT_PENDING",
+    "RECONCILING",
+    "EXCHANGE_COMMITTED",
+    "REFUND_HANDOFF"
+  ],
+  "initial": "RETURN_STARTED",
+  "terminal": [
+    "EXCHANGE_COMMITTED",
+    "REFUND_HANDOFF"
+  ],
+  "precommitStates": [
+    "RETURN_STARTED",
+    "ELIGIBILITY_CHECKED",
+    "CONSENT_PENDING",
+    "CANDIDATES_READY",
+    "PREVIEW_PENDING",
+    "DECISION_READY",
+    "QUOTE_READY"
+  ],
+  "edges": [
+    {
+      "from": "RETURN_STARTED",
+      "to": "ELIGIBILITY_CHECKED"
+    },
+    {
+      "from": "ELIGIBILITY_CHECKED",
+      "to": "CONSENT_PENDING"
+    },
+    {
+      "from": "CONSENT_PENDING",
+      "to": "CANDIDATES_READY"
+    },
+    {
+      "from": "CANDIDATES_READY",
+      "to": "PREVIEW_PENDING"
+    },
+    {
+      "from": "PREVIEW_PENDING",
+      "to": "DECISION_READY"
+    },
+    {
+      "from": "DECISION_READY",
+      "to": "QUOTE_READY"
+    },
+    {
+      "from": "QUOTE_READY",
+      "to": "COMMIT_PENDING"
+    },
+    {
+      "from": "COMMIT_PENDING",
+      "to": "EXCHANGE_COMMITTED"
+    },
+    {
+      "from": "COMMIT_PENDING",
+      "to": "DECISION_READY"
+    },
+    {
+      "from": "COMMIT_PENDING",
+      "to": "RECONCILING"
+    },
+    {
+      "from": "RECONCILING",
+      "to": "EXCHANGE_COMMITTED"
+    },
+    {
+      "from": "RECONCILING",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "RETURN_STARTED",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "ELIGIBILITY_CHECKED",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "CONSENT_PENDING",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "CANDIDATES_READY",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "PREVIEW_PENDING",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "DECISION_READY",
+      "to": "REFUND_HANDOFF"
+    },
+    {
+      "from": "QUOTE_READY",
+      "to": "REFUND_HANDOFF"
+    },
+    {"from": "DECISION_READY", "to": "CANDIDATES_READY"},
+    {"from": "CANDIDATES_READY", "to": "CANDIDATES_READY"},
+    {"from": "DECISION_READY", "to": "CONSENT_PENDING"},
+    {"from": "CANDIDATES_READY", "to": "CONSENT_PENDING"}
+  ],
+  "guardsDefinedIn": "docs/04-state-machine.md",
+  "note": "Edges require documented guards. Media deletion and host return/support access remain available after terminal states."
+}

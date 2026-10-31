@@ -1,0 +1,56 @@
+{
+  "order": {
+    "orderId": "ORD-DEMO-UPLOAD-1",
+    "merchant": "demo",
+    "category": "dress",
+    "size": "M",
+    "currency": "USD",
+    "priceMinor": 8900,
+    "colorFamily": "burgundy",
+    "sku": "ORIGINAL-UPLOAD"
+  },
+  "catalog": [
+    {
+      "sku": "UP-NAVY-84",
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "priceMinor": 8400,
+      "stock": 2,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "style": "midi",
+      "occasion": "work"
+    },
+    {
+      "sku": "UP-GREEN-84",
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "priceMinor": 8400,
+      "stock": 1,
+      "colorFamily": "green",
+      "referenceRights": "synthetic-placeholder-only",
+      "style": "midi",
+      "occasion": "work"
+    },
+    {
+      "sku": "UP-EMPTY-80",
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "priceMinor": 8000,
+      "stock": 0,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only"
+    }
+  ],
+  "reasonCodes": ["COLOR"],
+  "preferences": {
+    "preferred": {"colorFamily": ["navy"], "style": ["midi"]},
+    "constraints": {}
+  }
+}

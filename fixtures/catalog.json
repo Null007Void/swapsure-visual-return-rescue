@@ -1,0 +1,114 @@
+{
+  "synthetic": true,
+  "snapshotVersion": "fixture-1",
+  "clock": "2026-10-25T12:00:00-07:00",
+  "original": {
+    "merchant": "demo",
+    "category": "dress",
+    "size": "M",
+    "currency": "USD",
+    "stock": 4,
+    "priceMinor": 8900,
+    "colorFamily": "burgundy",
+    "referenceRights": "synthetic-placeholder-only",
+    "sku": "ORIGINAL"
+  },
+  "candidates": [
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "stock": 4,
+      "priceMinor": 8400,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "NAVY-84"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "stock": 4,
+      "priceMinor": 9900,
+      "colorFamily": "green",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "GREEN-99"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "stock": 4,
+      "priceMinor": 8400,
+      "colorFamily": "burgundy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "RED-84"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "stock": 0,
+      "priceMinor": 8000,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "EMPTY-80"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "EUR",
+      "stock": 4,
+      "priceMinor": 8400,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "EUR-84"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "L",
+      "currency": "USD",
+      "stock": 4,
+      "priceMinor": 8400,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "LARGE-84"
+    },
+    {
+      "merchant": "demo",
+      "category": "dress",
+      "size": "M",
+      "currency": "USD",
+      "stock": 4,
+      "priceMinor": 12000,
+      "colorFamily": "navy",
+      "referenceRights": "synthetic-placeholder-only",
+      "sku": "EXPENSIVE-120"
+    }
+  ],
+  "scenario": {
+    "reason": "COLOR",
+    "maxPriceDeltaMinor": 1500,
+    "expectedRankedSkus": [
+      "NAVY-84",
+      "GREEN-99"
+    ],
+    "expectedNavy": {
+      "retainedOriginalGmvMinor": 8400,
+      "partialRefundMinor": 500,
+      "additionalChargeMinor": 0
+    },
+    "expectedGreen": {
+      "retainedOriginalGmvMinor": 8900,
+      "partialRefundMinor": 0,
+      "additionalChargeMinor": 1000
+    }
+  },
+  "note": "No actual images or live stock. Relative snapshot age is set by the future test clock."
+}

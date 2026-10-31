@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "mode": "MOCK",
+  "liveApiAllowed": false,
+  "secretsAllowed": false,
+  "deploymentAllowed": false,
+  "submissionAllowed": false,
+  "permanentInfrastructureAllowed": false,
+  "liveCallCap": 0,
+  "liveUnitCap": 0,
+  "refundAlwaysAvailable": true,
+  "humanExchangeApprovalRequired": true,
+  "maxPreviews": 3,
+  "inventoryFreshnessSeconds": 60,
+  "quoteTtlSeconds": 60,
+  "localMediaTtlSeconds": 1800,
+  "fixturePriceDeltaCapMinor": 1500,
+  "reasonMap": {
+    "COLOR": "ELIGIBLE_VISUAL_RESCUE",
+    "STYLE": "ELIGIBLE_VISUAL_RESCUE",
+    "VISUAL_EXPECTATION": "ELIGIBLE_VISUAL_RESCUE",
+    "OCCASION": "ELIGIBLE_VISUAL_RESCUE",
+    "TOO_SMALL": "INELIGIBLE_FIT",
+    "TOO_LARGE": "INELIGIBLE_FIT",
+    "DAMAGED": "INELIGIBLE_DEFECT",
+    "DEFECTIVE": "INELIGIBLE_DEFECT",
+    "WRONG_ITEM": "INELIGIBLE_FULFILLMENT_ERROR",
+    "MATERIAL_UNCOMFORTABLE": "INELIGIBLE_MATERIAL",
+    "WANT_REFUND": "REFUND_REQUESTED"
+  },
+  "precedence": [
+    "REFUND_REQUESTED",
+    "UNKNOWN_REQUIRES_REFUND_PATH",
+    "INELIGIBLE_DEFECT",
+    "INELIGIBLE_FULFILLMENT_ERROR",
+    "INELIGIBLE_FIT",
+    "INELIGIBLE_MATERIAL",
+    "ELIGIBLE_VISUAL_RESCUE"
+  ]
+}

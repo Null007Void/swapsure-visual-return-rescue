@@ -1,0 +1,3 @@
+# Keep hashes stable across checkouts: no CRLF rewriting of text files.
+* text=auto eol=lf
+*.png binary
