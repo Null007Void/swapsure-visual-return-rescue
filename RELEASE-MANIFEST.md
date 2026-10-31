@@ -1,8 +1,8 @@
-# SwapSure 1.7.15 — release manifest
+# SwapSure 1.7.17 — release manifest
 
 Published source: v1.7.13 lives at tag v1.7.13 in
 https://github.com/Null007Void/swapsure-visual-return-rescue (commit 0b785599011ffa31f629932a2f1caad88f2e74bc).
-This 1.7.15 tree is not published yet: it is built and verified locally and awaits an explicit
+This 1.7.17 tree is not published yet: it is built and verified locally and awaits an explicit
 publication decision. Earlier release identities are preserved and never rewritten.
 
 ## What this is
