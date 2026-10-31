@@ -1,6 +1,6 @@
 [project]
 name = "swapsure"
-version = "1.7.15"
+version = "1.7.17"
 description = "SwapSure - visual return rescue: a shopper-consented wardrobe try-on with an always-available refund route"
 requires-python = ">=3.11"
 dependencies = ["Pillow>=10,<13"]   # maintained decoder for provider result images

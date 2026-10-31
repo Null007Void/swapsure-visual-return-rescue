@@ -1,4 +1,4 @@
-# SwapSure 1.7.15 - release notes
+# SwapSure 1.7.17 - release notes
 
 ## Judge sample photos
 

@@ -177,7 +177,7 @@ RELEASE_INVENTORY = (
     "docs/DEVPOST-SUBMISSION.md",
     "docs/HOSTED-JUDGING-PLAN.md",
     "docs/RELEASE-NOTES-1.7.12.md",
-    "docs/RELEASE-NOTES-1.7.15.md",
+    "docs/RELEASE-NOTES-1.7.17.md",
     "docs/YOUTUBE-METADATA.md",
     "fixtures/catalog.json",
     "fixtures/eligibility-cases.json",
