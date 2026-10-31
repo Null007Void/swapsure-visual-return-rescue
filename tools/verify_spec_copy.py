@@ -84,7 +84,6 @@ RELEASE_INVENTORY = (
     "AGENTS.md",
     "Dockerfile",
     "LICENSE",
-    "MANIFEST-PUBLIC.sha256",
     "README.md",
     "RELEASE-MANIFEST.md",
     "THIRD-PARTY-NOTICES.md",
