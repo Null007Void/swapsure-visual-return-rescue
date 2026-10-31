@@ -44,9 +44,15 @@ provider account balance.
 
     unit cost            2 per preview (provider's documented price)
     proposal             allow the owner to name a number of units; nothing is allocated here
-    example arithmetic   2 units × 2 previews × 12 reviewers = 48 units, if the owner chooses so
+    option arithmetic    previews at 2 units each: 20 previews = 40 units, 40 = 80 units,
+                         100 = 200 units. The number of judges is unknown and is not assumed here;
+                         pick a total from the preview count you are willing to fund, not from a
+                         guessed headcount. The provider account balance would cap it in practice
+                         and has not been verified in this offline pass.
     ceiling              SWAPSURE_LIVE_UNIT_CAP = that number, enforced by the ledger before dispatch
-    session cap          SWAPSURE_LIVE_SESSION_UNIT_CAP = same number, so one session cannot drain it
+    session cap          a fraction of the total, never equal to it: a session cap equal to the
+                         total means one visitor can consume everything, which is the opposite of
+                         sharing. Suggest 8 units per session against a larger total.
 
 The ledger refuses an operation identity it has already recorded, so repeated clicks, refreshes and
 duplicate tabs cannot create two paid tasks for the same photo and garment. When the ceiling is
@@ -69,9 +75,9 @@ Prices are indicative and must be confirmed at purchase; nothing has been bought
 | Hetzner CX22 VPS + Caddy | full VM | about €4–5 / month | cheapest at long horizon, but you own patching, TLS and restarts |
 | Tunnel to a personal machine | — | 0 | **excluded by instruction**, and it would put the recording workstation on the internet |
 
-Lowest practical cost for a three-week judging window: the Fly.io machine with a small volume, stopped
-after 20 November. Expect under $5 total if it stays within the free allowance; the volume is the part
-that cannot be free.
+The instance must stay available through the end of judging: **20 November 2026, 16:45 UTC**. Do not
+schedule a shutdown before that instant, and do not scale to zero on a schedule that could sleep
+through it. Estimates below are estimates, not guaranteed totals.
 
 ## 5. Suitability checks, done offline against this tree
 
@@ -110,8 +116,9 @@ the deployment and a supervised smoke test.
 > costs 2 provider units from a fixed allowance; when it runs out the page says so plainly and offers
 > the refund route — it never pretends to be an offline demo.
 
-It is guidance text with no enforcement, asserted by tests: a session is not gated at three, and the
-refund route stays visible throughout.
+It is advisory text with no enforcement, asserted by tests: a session is not gated at three, and the
+refund route stays visible throughout. It is not a fairness guarantee, and nothing in the product
+measures or balances one judge against another.
 
 ## 7. Gaps and the conflict you should decide on
 
@@ -145,3 +152,13 @@ refund route stays visible throughout.
                                                the organisers first
 
 Until A–E are answered, nothing is deployed, no key is entered, and no unit is spent.
+
+## 9. What this plan does not establish
+
+    - Compliance with the "free of charge and without any restriction" testing clause. Disclosing a
+      budget ceiling does not make a capped demo unrestricted; the question is still open.
+    - That the chosen platform supplies TLS and authentication by itself. Some do not; a proxy that
+      terminates TLS and performs authentication must be part of the topology and must be configured
+      explicitly, covering every route including image and status endpoints.
+    - Current provider pricing. It must be read from the official price list at decision time; the
+      figures in this document are estimates carried from earlier reading.

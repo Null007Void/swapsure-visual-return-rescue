@@ -74,6 +74,27 @@ def parse_manifest(path: pathlib.Path) -> dict[str, str]:
     return entries
 
 
+
+# The required set is defined here, independently of the manifest. A manifest cannot make itself
+# complete: it is checked against this list, so an empty or truncated manifest fails.
+REQUIRED_PUBLIC = (
+    "AGENTS.md",
+    "LICENSE",
+    "README.md",
+    "THIRD-PARTY-NOTICES.md",
+    "RELEASE-MANIFEST.md",
+    "pyproject.toml",
+    "contracts/state-machine.json",
+    "fixtures/catalog.json",
+    "docs/CATALOG-PROVIDER-CATEGORIES.md",
+    "docs/HOSTED-JUDGING-PLAN.md",
+    "src/ui/server.py",
+    "src/ui/service.py",
+    "src/ui/views.py",
+    "src/ui/webapp.py",
+    "tests/web/test_judging_notice.py",
+)
+
 def public_main() -> int:
     """Check the files this public tree ships against MANIFEST-PUBLIC.sha256."""
     import hashlib
@@ -82,9 +103,24 @@ def public_main() -> int:
     if not manifest.is_file():
         print("FAIL missing public manifest")
         return 2
+    lines = [line for line in manifest.read_text(encoding="utf-8").splitlines() if line.strip()]
+    if not lines:
+        print("FAIL empty public manifest: it covers nothing, so it proves nothing")
+        return 1
+    covered = {}
+    for line in lines:
+        if "  " not in line:
+            print("FAIL malformed manifest line:", repr(line[:60]))
+            return 1
+        digest, name = line.split("  ", 1)
+        covered[name] = digest
+    absent = [name for name in REQUIRED_PUBLIC if name not in covered]
+    if absent:
+        print("FAIL manifest is truncated: it omits required files ->", ", ".join(sorted(absent)))
+        return 1
     bad = 0
     checked = 0
-    for line in manifest.read_text(encoding="utf-8").splitlines():
+    for line in lines:
         if not line.strip():
             continue
         expected, name = line.split("  ", 1)

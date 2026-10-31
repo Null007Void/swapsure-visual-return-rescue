@@ -83,7 +83,8 @@ def clear_session_cookie_header() -> str:
     return f"{SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0"
 
 
-def same_origin(method: str, headers: Mapping[str, str], allowed_hosts: frozenset[str]) -> tuple[bool, str]:
+def same_origin(method: str, headers: Mapping[str, str], allowed_hosts: frozenset[str],
+                scheme: str = "http") -> tuple[bool, str]:
     """Return ``(ok, reason)`` for a request's origin proof.
 
     ``headers`` is a case-insensitive mapping supplied by the web adapter.
@@ -108,8 +109,14 @@ def same_origin(method: str, headers: Mapping[str, str], allowed_hosts: frozense
         # `Referrer-Policy: same-origin`, which makes a same-origin form post carry its real origin.
         if origin.strip().lower() == "null":
             return False, "OPAQUE_ORIGIN"
-        expected = urlunsplit(("http", host, "", "", ""))
-        if not constant_time_eq(origin.strip().lower(), expected):
+        # Behind a TLS proxy the browser sends a secure-scheme origin even though this process
+        # speaks plain HTTP; a local run without a proxy sends the plain one. Both are this origin.
+        seen = origin.strip().lower()
+        # The origin scheme must match the scheme this request actually arrived on. A TLS proxy
+        # reports https through wsgi.url_scheme or X-Forwarded-Proto; a plain local run reports http,
+        # so a secure-scheme origin on a plain server is still a different origin and stays refused.
+        expected = urlunsplit((scheme if scheme in ("http", "https") else "http", host, "", "", ""))
+        if not constant_time_eq(seen, expected):
             return False, "ORIGIN_MISMATCH"
         if site and site not in _SAME_SITE_VALUES:
             return False, "CROSS_SITE_FETCH"

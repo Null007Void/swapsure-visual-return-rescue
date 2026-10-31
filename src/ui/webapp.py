@@ -140,9 +140,13 @@ class Application:
         service: ReturnService,
         *,
         allowed_hosts: frozenset[str] = frozenset({"127.0.0.1:8000", "localhost:8000"}),
+        enforce_host: bool = False,
     ) -> None:
         self.service = service
         self.allowed_hosts = allowed_hosts
+        # A hosted deployment sits behind a proxy that may forward any Host it is given, and a
+        # rebound DNS name would otherwise reach the app under an unknown host on read paths too.
+        self.enforce_host = enforce_host
 
     # -- WSGI ------------------------------------------------------------ #
     def __call__(self, environ: Mapping[str, Any], start_response: Callable[..., Any]) -> list[bytes]:
@@ -217,7 +221,19 @@ class Application:
         query = urllib.parse.parse_qs(str(environ.get("QUERY_STRING", "")), keep_blank_values=True)
         cookies = parse_cookies(headers.get("Cookie"))
 
-        ok, reason = same_origin(method, headers, self.allowed_hosts)
+        if self.enforce_host:
+            host = (headers.get("Host") or "").strip().lower()
+            if host not in self.allowed_hosts:
+                raise ServiceError(
+                    "HOST_NOT_ALLOWED",
+                    "this deployment answers only on its own host name",
+                    status=403,
+                )
+
+        scheme = (environ.get("HTTP_X_FORWARDED_PROTO")
+                  or environ.get("wsgi.url_scheme") or "http")
+        ok, reason = same_origin(method, headers, self.allowed_hosts,
+                                 str(scheme).split(",")[0].strip().lower())
         if not ok:
             raise ServiceError(
                 "CROSS_ORIGIN_DENIED",

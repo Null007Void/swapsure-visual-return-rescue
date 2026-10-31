@@ -42,7 +42,7 @@ def build_app(
         names.add(f"{public_host}:443")
         names.add(f"{public_host}:80")
     allowed = frozenset(names)
-    return Application(service, allowed_hosts=allowed), service
+    return Application(service, allowed_hosts=allowed, enforce_host=True), service
 
 
 def main(argv: list[str] | None = None) -> int:
