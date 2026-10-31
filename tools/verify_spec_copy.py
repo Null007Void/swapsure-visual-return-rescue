@@ -271,6 +271,7 @@ RELEASE_INVENTORY = (
     "tests/web/test_previews_and_races.py",
     "tests/web/test_public_live_journey.py",
     "tests/web/test_repeat_and_photo.py",
+    "tests/web/test_sample_flow.py",
     "tests/web/test_sample_photos.py",
     "tests/web/test_trust_boundary.py",
     "tests/web/test_trusted_scheme_and_manifest.py",

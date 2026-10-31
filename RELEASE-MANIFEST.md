@@ -1,8 +1,8 @@
-# SwapSure 1.7.14 — release manifest
+# SwapSure 1.7.15 — release manifest
 
 Published source: v1.7.13 lives at tag v1.7.13 in
 https://github.com/Null007Void/swapsure-visual-return-rescue (commit 0b785599011ffa31f629932a2f1caad88f2e74bc).
-This 1.7.14 tree is not published yet: it is built and verified locally and awaits an explicit
+This 1.7.15 tree is not published yet: it is built and verified locally and awaits an explicit
 publication decision. Earlier release identities are preserved and never rewritten.
 
 ## What this is
@@ -14,7 +14,7 @@ Corp's YouCam API when the operator supplies a key.
 
 ## Contents
 
-202 tracked files; 201 manifest entries (MANIFEST-PUBLIC.sha256 does not hash itself).
+203 tracked files; 202 manifest entries (MANIFEST-PUBLIC.sha256 does not hash itself).
 
     src/          product code: domain rules, adapters, web UI
     tests/        offline suite, including the hosted-mode and concurrency tests
