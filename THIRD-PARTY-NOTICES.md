@@ -40,5 +40,5 @@ third-party product photography, no brand imagery, and no person's likeness is i
 
 ## Attribution
 
-Original project code: **Null007Void / Null Foundry**. Retain the `LICENSE` copyright line in
+Original project code: **Null007Void | Null Foundry**. Retain the `LICENSE` copyright line in
 redistributions and in any derivative interface.

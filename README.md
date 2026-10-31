@@ -130,7 +130,7 @@ tools/          specification-copy verifier
 
 ## Licence
 
-MIT, © Null007Void / Null Foundry. Third-party components are listed separately in
+MIT, © Null007Void | Null Foundry. Third-party components are listed separately in
 `THIRD-PARTY-NOTICES.md` (Pillow, MIT-CMU/HPND, used only to decode provider images — never to encode).
 The bundled garment references are synthetic images made for this project; their per-file provenance
 is recorded in `assets/catalog/PROVENANCE.json`.

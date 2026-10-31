@@ -44,7 +44,7 @@ Perfect Corp YouCam Cloth V4, Caddy in front for TLS and authentication.
 ## Repository
 
     url        PENDING - nothing has been published
-    licence    MIT, Null007Void / Null Foundry
+    licence    MIT, Null007Void | Null Foundry
 
 ## Testing instructions (for the judges)
 

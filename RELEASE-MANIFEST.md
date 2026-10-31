@@ -1,4 +1,4 @@
-# SwapSure 1.7.11 — release manifest
+# SwapSure 1.7.13 — release manifest
 
 Publication is held: this repository has no remote and has never been pushed.
 
@@ -27,6 +27,6 @@ member is the committed byte sequence, and it is compared member by member again
 
 ## Licence
 
-MIT, Copyright (c) 2026 Null007Void / Null Foundry. Third-party components are listed separately in
+MIT, Copyright (c) 2026 Null007Void | Null Foundry. Third-party components are listed separately in
 THIRD-PARTY-NOTICES.md (Pillow, MIT-CMU/HPND, decoding only). The bundled garment references are
 synthetic images made for this project; their provenance is recorded under assets/.

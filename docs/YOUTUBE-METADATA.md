@@ -21,7 +21,9 @@ What is real and what is simulated:
 Built with Python 3.13, a standard-library WSGI app, SQLite, and Pillow for decoding provider images.
 
 Code: PENDING
-Licence: MIT, Null007Void / Null Foundry
+Created by Null007Void | Null Foundry.
+Original project code is MIT-licensed; third-party components and assets retain their
+applicable terms.
 
 ## Chapters (optional)
 
